@@ -1,1 +1,17 @@
-<%= @posts %>
+<html>
+<head>
+	<title>Welcome</title>
+</head>
+<body>
+	<% @posts.each do |post| %>
+    <div>
+    	<div><% @user = User.find_by(id: post.user_id)%></div>
+        <div><%= link_to "@"+@user.email.split("@")[0], post_path(@user.id) %></div>
+        <div><%= post.caption %></div>
+        <%= image_tag post.photo.url(:medium) %>
+    </div>
+	<% end %>
+	<div><%= link_to 'New Post', new_post_path %></div>
+
+</body>
+</html>
