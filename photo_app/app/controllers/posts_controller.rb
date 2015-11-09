@@ -10,15 +10,23 @@ class PostsController < ApplicationController
 	def show
 		# @posts = current_user.posts
 		@posts = User.find(params[:id]).posts
+		
+
+		# @comment.post_id = @post.id
 	end
 
 	def create
 		caption = post_params[:caption]
 		photo = post_params[:photo]
-		@post = Post.create(:caption => caption, :photo => photo, :user_id => @user.id)
-		# <%=photo_file_name.url(:medium)%>
-		# binding.pry
-		redirect_to '/'
+		if photo.blank? !=false
+			flash[:error] = "GOOBY GOOBY GOO"
+			redirect_to :back
+		else
+			@post = Post.create(:caption => caption, :photo => photo, :user_id => @user.id)
+			# <%=photo_file_name.url(:medium)%>
+			# binding.pry
+			redirect_to '/'
+		end
 	end
 
 	def new

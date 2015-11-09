@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   # This is the Paperclip model information
 
   has_many :posts
+  has_many :comments, :through => :posts
 
 
 end

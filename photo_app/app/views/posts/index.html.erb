@@ -1,17 +1,20 @@
 <html>
 <head>
 	<title>Welcome</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
 </head>
 <body>
-	<% @posts.each do |post| %>
-    <div>
-    	<div><% @user = User.find_by(id: post.user_id)%></div>
-        <div><%= link_to "@"+@user.email.split("@")[0], post_path(@user.id) %></div>
-        <div><%= post.caption %></div>
-        <%= image_tag post.photo.url(:medium) %>
+	<div class = "container">
+        <% @posts.reverse.each do |post| %>
+        <div class = "">
+        	<div><% @user = User.find_by(id: post.user_id)%></div>
+            <div class = "username"><%= link_to "@"+@user.email.split("@")[0], post_path(@user.id) %></div>
+            <div><%= post.caption %></div>
+            <%= image_tag post.photo.url(:medium), :class => "" %>
+        </div>
+    	<% end %>
+    	<div><%= link_to 'New Post', new_post_path %></div>
     </div>
-	<% end %>
-	<div><%= link_to 'New Post', new_post_path %></div>
 
 </body>
 </html>

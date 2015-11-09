@@ -6,6 +6,8 @@ gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem "paperclip", "~> 4.3"
 # This is Paperclip our photo uploading gem
+gem 'aws-sdk'
+# Amazon web hosting service
 gem 'rails', '4.2.4'
 # Use postgresql as the database for Active Record
 gem 'pg'

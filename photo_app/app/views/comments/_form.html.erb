@@ -1,0 +1,12 @@
+<h3>Post a Comment</h3>
+
+<%= form_for(:post, url: post_comments_path(params[:id])) do |f| %>
+
+  <p>
+
+    <%= f.text_area :body%>
+  </p>
+  <p>
+    <%= f.submit 'Submit' %>
+  </p>
+<% end %>

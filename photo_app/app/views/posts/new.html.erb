@@ -1,10 +1,23 @@
-<%= form_for @post, :html => { :multipart => true} do |f| %>
-<p>
-	<%= f.label :caption %></br>
-	<%= f.text_area :caption, :rows => 10, :cols => 50 %>
-</p>
-<p>
-	<%= f.file_field :photo %>
-</p>
-<p><%= f.submit "Submit" %></p>
-<%end%>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+</head>
+<body>
+	<div class = "container">
+		<%= form_for @post, :html => { :multipart => true} do |f| %>
+		<p>
+			<%= f.label :caption %></br>
+			<%= f.text_area :caption, :rows => 10, :cols => 50 %>
+		</p>
+		<p>
+			<%= f.file_field :photo %>
+		</p>
+		<div> <%= flash[:error]%></div>
+		<%= f.submit "Submit" %>
+		<%end%>
+	</div>
+</body>
+</html>
+
+
